@@ -1,0 +1,54 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "loose": false,
+        "modules": false,
+        "targets": {
+          "browsers": ["last 2 versions", "safari 7"]
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    ["@babel/proposal-decorators", { "legacy": true }],
+    "@babel/proposal-optional-chaining",
+    ["@babel/proposal-class-properties", { "loose": true }],
+    [
+      "@babel/transform-runtime",
+      {
+        "helpers": false,
+        "regenerator": true
+      }
+    ],
+    [
+      "import",
+      {
+        "style": true,
+        "libraryName": "antd"
+      },
+      "antd"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "lodash",
+        "libraryDirectory": "",
+        "camel2DashComponentName": false
+      },
+      "lodash"
+    ],
+    [
+      "import",
+      {
+        "style": false,
+        "libraryName": "byted-antx",
+        "camel2DashComponentName": false
+      },
+      "antx"
+    ],
+    "babel-plugin-transform-es2015-modules-commonjs"
+  ]
+}

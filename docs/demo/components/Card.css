@@ -1,0 +1,74 @@
+:root {
+  --img-width: 24vw;
+  --img-height: var(--img-width);
+  --card-width: calc(var(--img-width) - 32px);
+  --card-height: calc(var(--img-height) - 32px);
+  --content-width: calc(2 * var(--card-width) + 32px);
+  --primary: #aaa;
+  --default: #ebeded;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: var(--card-width);
+  min-height: 225px;
+
+  font-family: 'Roboto Mono', monospace;
+  box-sizing: border-box;
+  color: var(--primary);
+}
+
+.card-left {
+  border-right: solid 1px var(--primary);
+  border-bottom: solid 1px var(--primary);
+  padding: 32px 32px 32px 0;
+}
+
+.card-right {
+  border-top: solid 1px var(--primary);
+  border-left: solid 1px var(--primary);
+  padding: 32px 0 32px 32px;
+  margin-left: -1px;
+}
+
+.card-text {
+  width: var(--card-width);
+  text-align: left;
+  margin-top: 32px;
+  font-size: 1rem;
+  font-weight: lighter;
+  text-overflow: ellipsis;
+  max-width: calc(var(--card-width) - 32px);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.card-title {
+  margin-top: 24px;
+  font-size: 16px;
+  max-width: var(--img-width);
+  overflow: hidden;
+}
+
+.card-title > div {
+  white-space: nowrap;
+}
+
+.card-media {
+  position: relative;
+  width: 100%;
+  height: var(--card-height);
+  overflow: hidden;
+}
+
+.card-media > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--img-width);
+}

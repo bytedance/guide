@@ -1,0 +1,64 @@
+{
+  "name": "guide",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "dumi dev",
+    "lint": "eslint --ext .jsx,.js src",
+    "lint:fix": "yarn run lint -- --fix",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "release": "npm run build && bash ./publish.sh",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.umd.js",
+  "typings": "dist/src/index.d.ts",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "validate-commit-msg"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^17.0.1",
+    "typescript": "^4.1.3"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.12.7",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "@umijs/test": "^3.0.5",
+    "dumi": "^1.0.10",
+    "eslint": "^7.18.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-config-standard-react": "^11.0.1",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "father-build": "^1.17.2",
+    "gh-pages": "^3.0.0",
+    "husky": "^4.3.7",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "validate-commit-msg": "^2.14.0",
+    "yorkie": "^2.0.0"
+  }
+}

@@ -1,0 +1,30 @@
+.btn {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+  white-space: no-wrap;
+
+  color: #333;
+  background: transparent;
+  border: solid 1px #ccc;
+  border-radius: 4px;
+
+  margin: 8px;
+  padding: 6px 16px;
+  min-width: 120px;
+
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px #338aff;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  border: solid 1px #338aff;
+  color: #338aff;
+  transition: 0.3s;
+}

@@ -1,0 +1,112 @@
+.guide-modal {
+  position: absolute;
+  width: 240px;
+  z-index: 1100;
+  background: #fff;
+  box-shadow: 0px 0px 4px 0px #999;
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0px 2px 6px 0px rgba(153, 153, 153, 1);
+
+  & * {
+    font-family: PingFangSC-Regular, PingFang SC;
+    text-align: left;
+  }
+
+  &-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    height: 22px;
+    line-height: 22px;
+    margin-bottom: 8px;
+  }
+
+  &-content {
+    color: rgba(102, 102, 102, 1);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 16px;
+  }
+
+  &-close-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+  }
+
+  &-arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    transform: rotate(45deg);
+  }
+
+  &-hotspot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #4e83fd;
+    animation: pulse 1s infinite;
+  }
+
+  &-footer {
+    width: 100%;
+    max-height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & * {
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    &-text {
+      color: rgba(153, 153, 153, 1);
+    }
+
+    &-btn {
+      padding: 3px 16px;
+      line-height: 20px;
+      border-radius: 4px;
+      color: rgba(255, 255, 255, 1);
+      background: rgba(47, 136, 255, 1);
+      box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.08);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      word-break: keep-all;
+
+      &:hover {
+        background-color: #40a9ff;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0px 0px 4px #338aff;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+.guide-modal-title:focus {
+  background: yellow;
+  box-shadow: 0px 0px 4px #338aff;
+  border: dotted 1px #ccc;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 #4e83fd;
+  }
+  to {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}

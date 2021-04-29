@@ -1,0 +1,32 @@
+.demo-nomask-container {
+  display: flex;
+  padding-top: 64px;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-main-header,
+.demo-main-btn {
+  position: fixed;
+  left: 64px;
+}
+
+.demo-main-header {
+  top: 40px;
+}
+
+.demo-main-btn.demo-mask {
+  top: 104px;
+}
+
+.demo-main-btn.demo-nomask {
+  top: 160px;
+}
+
+.demo-main-btn.add-step {
+  top: 216px;
+}
+
+.guide-hidden-footer .guide-modal-footer {
+  display: none;
+}

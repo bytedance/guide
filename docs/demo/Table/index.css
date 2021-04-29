@@ -1,0 +1,31 @@
+:root {
+  --margin-x: 240px;
+  --margin-y: 180px;
+}
+
+.tg {
+  margin: var(--margin-y) auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  width: 711px;
+}
+
+.tg th {
+  font-weight: bold;
+}
+
+.tg td {
+  font-weight: normal;
+}
+
+.tg th,
+.tg td {
+  font-family: Arial, sans-serif;
+  text-align: left;
+  font-size: 14px;
+  border: solid 1px #ccc;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}

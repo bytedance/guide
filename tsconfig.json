@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "lib": ["esnext", "dom", "es7"],
+    "allowJs": false,
+    "baseUrl": "./",
+    "rootDir": "./",
+    "strict": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@@/*": ["src/.umi/*"]
+    },
+    // 允许从没有设置默认导出的模块中默认导入
+    "allowSyntheticDefaultImports": true,
+    // 包括以.json扩展名导入的模块
+    "resolveJsonModule": true,
+    // 支持装饰器新特性
+    "experimentalDecorators": true,
+    // 引入文件区分大小写
+    "forceConsistentCasingInFileNames": true,
+    // 不是函数的所有返回路径都有返回值时报错
+    "noImplicitReturns": true,
+    // 若有未使用的局部变量则抛错
+    "noUnusedLocals": true,
+    // 若有未使用的参数则抛错
+    "noUnusedParameters": true,
+    // 不生成输出文件
+    "noEmit": true,
+    "declaration": true
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "es",
+    "dist",
+    "typings",
+    "**/__test__",
+    "test"
+  ]
+}

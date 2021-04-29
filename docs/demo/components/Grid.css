@@ -1,0 +1,7 @@
+.grid {
+  display: grid;
+}
+
+.grid-item.end-item {
+  justify-self: end;
+}
