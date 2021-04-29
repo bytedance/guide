@@ -18,7 +18,7 @@ npm i byte-guide
 yarn add byte-guide
 
 /* umd 方式引入 */
-<script src='https://https://unpkg.com/byte-guide@version/dist/index.umd.js'></script>
+<script src='https://unpkg.com/byte-guide@version/dist/index.umd.js'></script>
 
 /* 使用 */
 import Guide from 'byte-guide'
