@@ -1,5 +1,5 @@
 import React from 'react';
-import Guide from 'guide';
+import Guide from 'byte-guide';
 import Button from '../components/Button';
 import { STEPS, placements } from '../steps';
 import './index.css';

@@ -13,14 +13,14 @@
 
 ```javascript
 /* 安装 npm or yarn */
-npm i guide
-yarn add guide
+npm i byte-guide
+yarn add byte-guide
 
 /* umd 方式引入 */
 <script src='https://unpkg.pstatp.com/byted-cg/guide/2.0.0-alpha.1/dist/index.umd.js'></script>
 
 /* 使用 */
-import Guide from 'guide'
+import Guide from 'byte-guide'
 <Guide
     className='my-guide'
     localKey='uni-key'
