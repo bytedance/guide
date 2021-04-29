@@ -1,6 +1,16 @@
 {
   "name": "byte-guide",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "New feature guide",
+  "keywords": [
+    "guide",
+    "react"
+  ],
+  "homepage": "https://github.com/bytedance/guide",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bytedance/guide"
+  },  
   "scripts": {
     "start": "dumi dev",
     "lint": "eslint --ext .jsx,.js src",
