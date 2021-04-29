@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Guide from 'guide';
+import Guide from 'byte-guide';
 import { Button, Grid, Card as CardComponent } from '../components';
 import { ITEMS, STEPS } from './const';
 import './index.css';

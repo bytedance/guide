@@ -1,4 +1,5 @@
 # Introduction
+English | [简体中文](./README.zh-CN.md)
 
 When we onboard new users or ship new features, how do we make sure that our audience knows what's in it and get them excited to use our apps? That's where an onboarding sequence comes into play. This React library `guide` offers an effective way to construct a smooth onboarding experience.
 
@@ -6,8 +7,8 @@ When we onboard new users or ship new features, how do we make sure that our aud
 
 ```javascript
 /* install via npm or yarn */
-npm i guide
-yarn add guide
+npm i byte-guide
+yarn add byte-guide
 
 /* load via umd */
 <script src='https://unpkg.pstatp.com/byted-cg/guide/2.0.0-alpha.1/dist/index.umd.js'></script>
@@ -16,7 +17,7 @@ yarn add guide
 ## Usage
 
 ```javascript
-import Guide from 'guide';
+import Guide from 'byte-guide';
 <Guide
   steps={[]}
   localKey="uni-key"
