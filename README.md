@@ -2,7 +2,8 @@
 English | [简体中文](./README.zh-CN.md)
 
 When we onboard new users or ship new features, how do we make sure that our audience knows what's in it and get them excited to use our apps? That's where an onboarding sequence comes into play. This React library `guide` offers an effective way to construct a smooth onboarding experience.
-
+![mask](./public/light_mode.png)
+![no mask](./public/dark_mode.png)
 ## Installation
 
 ```javascript
