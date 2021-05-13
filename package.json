@@ -1,6 +1,6 @@
 {
   "name": "byte-guide",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "New feature guide",
   "keywords": [
     "guide",
@@ -41,9 +41,11 @@
       "eslint --fix"
     ]
   },
+  "peerDependencies": {
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0"
+  },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.1",
     "typescript": "^4.1.3"
   },
   "devDependencies": {

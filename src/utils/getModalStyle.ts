@@ -36,7 +36,7 @@ export const getModalStyle = (
   const anchorOffsetTop = getOffsetTop(anchorEl);
 
   const scrollY = isAnchorFixed
-    ? 0
+    ? anchorPos.top
     : isParentBody
     ? anchorPos.top + scrollTop
     : anchorOffsetTop;
