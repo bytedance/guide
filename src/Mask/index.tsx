@@ -39,7 +39,7 @@ const Mask: React.FC<IMask> = ({
     return () => {
       realWindow.removeEventListener('resize', handleResize);
     };
-  }, [realWindow]);
+  }, [realWindow, anchorEl]);
 
   return ReactDOM.createPortal(
     <div className={`guide-mask ${className}`} style={style} />,
