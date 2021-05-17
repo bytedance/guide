@@ -175,7 +175,11 @@ const Guide: React.FC<IGuide> = (props) => {
   return (!mask || initOverflowVal) && parentEl ? (
     <>
       {mask && (
-        <Mask className={maskClassName} anchorEl={anchorEl as Element} />
+        <Mask
+          className={maskClassName}
+          anchorEl={anchorEl as Element}
+          realWindow={realWindow as Window}
+        />
       )}
       <Modal
         anchorEl={anchorEl as HTMLElement}
