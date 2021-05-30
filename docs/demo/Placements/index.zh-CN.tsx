@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Guide from 'byte-guide';
 import Button from '../components/Button';
 import { STEPS_CN } from '../steps';
-import './index.css';
+import './index.less';
 
 const App = (): JSX.Element => {
   const [visible, setVisible] = useState({});
