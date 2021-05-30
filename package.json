@@ -26,7 +26,7 @@
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "unpkg": "dist/index.umd.js",
+  "unpkg": "dist/index.umd.min.js",
   "typings": "dist/src/index.d.ts",
   "license": "MIT",
   "husky": {
