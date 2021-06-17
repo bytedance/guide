@@ -11,6 +11,7 @@ import i18n from '../constant/lang';
 import Mask from '../Mask';
 import Modal from '../Modal';
 import { IGuide } from '../typings/guide';
+import { CUSTOM_ELEMENT_CLASS } from '../constant/className'
 
 const Guide: React.FC<IGuide> = (props) => {
   const {
@@ -96,7 +97,7 @@ const Guide: React.FC<IGuide> = (props) => {
       (realDocument as HTMLElement).style.overflow = initOverflowVal;
     }
 
-    const cusAnchor = document.querySelector('.custom-anchor')
+    const cusAnchor = document.querySelector(CUSTOM_ELEMENT_CLASS)
     if(cusAnchor) {
       document.body.removeChild(cusAnchor)
     }

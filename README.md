@@ -12,7 +12,9 @@ npm i byte-guide
 yarn add byte-guide
 
 /* load via umd */
-<script src='https://unpkg.com/byte-guide@version/dist/index.umd.js'></script>
+<script src='https://unpkg.com/byte-guide/dist/index.umd.min.js'></script>
+/* load via umd and specified version */
+<script src='https://unpkg.com/byte-guide@version/dist/index.umd.min.js'></script>
 ```
 
 ## Usage

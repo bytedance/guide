@@ -1,5 +1,5 @@
 :root {
-  --margin-x: 240px;
+  --margin-x-direction: 18%;
   --margin-y: 180px;
 }
 
@@ -14,18 +14,20 @@
   margin-bottom: var(--margin-y);
 }
 
-.leftCol {
-  width: 100px;
-  float: left;
+.flexBase {
   display: flex;
   flex-direction: column;
-  margin-left: var(--margin-x);
+  align-items: center;
 }
 
-.rightCol {
+.leftCol:extend(.flexBase) {
+  width: 100px;
+  float: left;
+  margin-left: var(--margin-x-direction);
+}
+
+.rightCol:extend(.flexBase) {
   width: 100px;
   float: right;
-  display: flex;
-  flex-direction: column;
-  margin-right: var(--margin-x);
+  margin-right: var(--margin-x-direction);
 }

@@ -10,7 +10,8 @@
         }
       }
     ],
-    "@babel/preset-typescript"
+    "@babel/preset-typescript",
+    "@babel/preset-react"
   ],
   "plugins": [
     ["@babel/proposal-decorators", { "legacy": true }],
@@ -22,32 +23,6 @@
         "helpers": false,
         "regenerator": true
       }
-    ],
-    [
-      "import",
-      {
-        "style": true,
-        "libraryName": "antd"
-      },
-      "antd"
-    ],
-    [
-      "import",
-      {
-        "libraryName": "lodash",
-        "libraryDirectory": "",
-        "camel2DashComponentName": false
-      },
-      "lodash"
-    ],
-    [
-      "import",
-      {
-        "style": false,
-        "libraryName": "byted-antx",
-        "camel2DashComponentName": false
-      },
-      "antx"
     ],
     "babel-plugin-transform-es2015-modules-commonjs"
   ]
