@@ -229,7 +229,7 @@ const Modal: React.FC<IModal> = ({
             <CloseSmall className={`${PREFIX}-close-icon`} onClick={onClose} />
           )}
           {/* MODAL TITLE */}
-          <title className={`${PREFIX}-title`}>{stepInfo.title}</title>
+          <div className={`${PREFIX}-title`}>{stepInfo.title}</div>
           {/* MODAL CONTENT */}
           <div className={`${PREFIX}-content`}>
             {typeof stepInfo.content === 'function'
