@@ -7,12 +7,14 @@ interface IMask {
   className: string;
   anchorEl: Element;
   realWindow: Window;
+  timestamp?: number;
 }
 
 const Mask: React.FC<IMask> = ({
   className,
   anchorEl,
   realWindow,
+  timestamp,
 }): JSX.Element => {
   const [style, setStyle] = useState<Record<string, number>>({});
   const timerRef = useRef<number>(0);
@@ -28,6 +30,11 @@ const Mask: React.FC<IMask> = ({
       calculateStyle();
     });
   };
+
+  // 异步加载导致页面重绘时，蒙层重绘
+  useEffect(() => {
+    calculateStyle();
+  }, [timestamp]);
 
   useEffect(() => {
     calculateStyle();

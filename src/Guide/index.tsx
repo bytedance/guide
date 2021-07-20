@@ -180,6 +180,7 @@ const Guide: React.FC<IGuide> = (props) => {
           className={maskClassName}
           anchorEl={anchorEl as Element}
           realWindow={realWindow as Window}
+          timestamp={new Date().getTime()}
         />
       )}
       <Modal
