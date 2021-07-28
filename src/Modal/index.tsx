@@ -109,11 +109,11 @@ const Modal: React.FC<IModal> = ({
     if (
       // Modal is below the viewport
       anchorPos.top -
-        scrollContainerTop +
-        anchorPos.height +
-        modalPos.height +
-        MARGIN >=
-        visibleHeight ||
+      scrollContainerTop +
+      anchorPos.height +
+      modalPos.height +
+      MARGIN >=
+      visibleHeight ||
       // Modal is above the viewport
       anchorPos.top <= modalPos.height + MARGIN
     ) {
@@ -213,41 +213,41 @@ const Modal: React.FC<IModal> = ({
 
   return visible
     ? ReactDOM.createPortal(
-        <div
-          ref={modalRef}
-          className={`${PREFIX} ${className}`}
-          style={modalStyle}
-        >
-          {/* ARROW */}
-          {arrow && <span className={`${PREFIX}-arrow`} style={arrowStyle} />}
-          {/* HOT SPOT */}
-          {hotspot && (
-            <div className={`${PREFIX}-hotspot`} style={hotspotStyle} />
-          )}
-          {/* CLOSE BUTTON */}
-          {closable && (
-            <CloseSmall className={`${PREFIX}-close-icon`} onClick={onClose} />
-          )}
-          {/* MODAL TITLE */}
-          <div className={`${PREFIX}-title`}>{stepInfo.title}</div>
-          {/* MODAL CONTENT */}
-          <div className={`${PREFIX}-content`}>
-            {typeof stepInfo.content === 'function'
-              ? stepInfo.content()
-              : stepInfo.content}
-          </div>
-          {/* MODAL FOOTER */}
-          <div className={`${PREFIX}-footer`}>
-            <span className={`${PREFIX}-footer-text`}>
-              {_stepText(stepIndex + 1, steps.length)}
-            </span>
-            <button className={`${PREFIX}-footer-btn`} onClick={handleChange}>
-              {_okText}
-            </button>
-          </div>
-        </div>,
-        parentEl,
-      )
+      <div
+        ref={modalRef}
+        className={`${PREFIX} ${className}`}
+        style={modalStyle}
+      >
+        {/* ARROW */}
+        {arrow && <span className={`${PREFIX}-arrow`} style={arrowStyle} />}
+        {/* HOT SPOT */}
+        {hotspot && (
+          <div className={`${PREFIX}-hotspot`} style={hotspotStyle} />
+        )}
+        {/* CLOSE BUTTON */}
+        {closable && (
+          <CloseSmall className={`${PREFIX}-close-icon`} onClick={onClose} />
+        )}
+        {/* MODAL TITLE */}
+        <div className={`${PREFIX}-title`}>{stepInfo.title}</div>
+        {/* MODAL CONTENT */}
+        <div className={`${PREFIX}-content`}>
+          {typeof stepInfo.content === 'function'
+            ? stepInfo.content()
+            : stepInfo.content}
+        </div>
+        {/* MODAL FOOTER */}
+        <div className={`${PREFIX}-footer`}>
+          <span className={`${PREFIX}-footer-text`}>
+            {_stepText(stepIndex + 1, steps.length)}
+          </span>
+          <button className={`${PREFIX}-footer-btn`} onClick={handleChange}>
+            {_okText}
+          </button>
+        </div>
+      </div>,
+      parentEl,
+    )
     : null;
 };
 

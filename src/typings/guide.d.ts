@@ -74,7 +74,7 @@ export interface IGuide {
   /* The custom class name of the mask */
   maskClassName?: string;
   /* The expire date of the guide when it will not be displayed anymore */
-  expireDate?: string;  
+  expireDate?: string;
   /* If the guide is visible */
   visible?: boolean;
   /* The language of use */

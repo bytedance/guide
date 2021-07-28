@@ -49,15 +49,15 @@ const Guide: React.FC<IGuide> = (props) => {
     : true;
 
   const anchorEl = useMemo(() => {
-    if(stepIndex >= 0 && stepIndex < steps.length) {
-      const {targetPos, selector} = steps[stepIndex]
+    if (stepIndex >= 0 && stepIndex < steps.length) {
+      const { targetPos, selector } = steps[stepIndex]
 
-      if(selector) return getAnchorEl(selector)
+      if (selector) return getAnchorEl(selector)
 
-      if(targetPos) {
+      if (targetPos) {
         return getCusAnchorEl(targetPos)
       }
-    } 
+    }
     return null;
   }, [stepIndex, steps[stepIndex], ticker]);
 
@@ -98,7 +98,7 @@ const Guide: React.FC<IGuide> = (props) => {
     }
 
     const cusAnchor = document.querySelector(CUSTOM_ELEMENT_CLASS)
-    if(cusAnchor) {
+    if (cusAnchor) {
       document.body.removeChild(cusAnchor)
     }
 
