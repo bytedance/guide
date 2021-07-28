@@ -81,6 +81,8 @@ export interface IGuide {
   lang?: 'zh' | 'en' | 'ja';
   /* The custom text for the step info */
   stepText?: (stepIndex: number, stepCount: number) => string;
+  /* The custom text for the `Previous Step` button */
+  prevText?: string;
   /* The custom text for the `Next Step` button */
   nextText?: string;
   /* The custom text for the confirm button at the last step */
@@ -91,6 +93,7 @@ export interface IGuide {
   afterStepChange?: (stepIndex: number, step: IStep) => void;
   /* The callback function when the guide closes */
   onClose?: () => void;
+  isShowPreviousBtn?: boolean;
 }
 
 export interface IModal {
@@ -104,10 +107,12 @@ export interface IModal {
   hotspot: boolean;
   closable: boolean;
   onClose: () => void;
-  onChange: () => void;
+  onChange: (direction: number) => void;
   stepText?: (stepIndex: number, stepCount: number) => string;
+  isShowPreviousBtn: boolean;
   nextText?: string;
+  prevText?: string;
   okText?: string;
   className?: string;
-  TEXT: (key: 'NEXT_STEP' | 'I_KNOW' | 'STEP_NUMBER') => string | StepNumber;
+  TEXT: (key: 'NEXT_STEP' | 'I_KNOW' | 'STEP_NUMBER' | 'PREV_STEP') => string | StepNumber;
 }

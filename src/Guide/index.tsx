@@ -29,9 +29,11 @@ const Guide: React.FC<IGuide> = (props) => {
     afterStepChange,
     onClose,
     stepText,
+    prevText,
     nextText,
     okText,
     lang = 'zh',
+    isShowPreviousBtn = false,
   } = props;
 
   const [stepIndex, setStepIndex] = useState<number>(-1);
@@ -83,10 +85,12 @@ const Guide: React.FC<IGuide> = (props) => {
     [anchorEl],
   );
 
-  const handleChange = (): void => {
-    if (stepIndex === steps.length - 1) handleClose();
+  const handleChange = (direction: number): void => {
+    const nextStepIndex = Math.min(Math.max(stepIndex + direction, 0), steps.length)
+    if (nextStepIndex === stepIndex) return
+    if (nextStepIndex === steps.length) handleClose();
     else if (stepIndex >= 0) beforeStepChange?.(stepIndex, steps[stepIndex]);
-    setStepIndex(stepIndex + 1);
+    setStepIndex(nextStepIndex);
   };
 
   const handleClose = (): void => {
@@ -195,10 +199,12 @@ const Guide: React.FC<IGuide> = (props) => {
         onClose={handleClose}
         onChange={handleChange}
         stepText={stepText}
+        prevText={prevText}
         nextText={nextText}
         okText={okText}
         className={modalClassName}
         TEXT={i18nTEXT}
+        isShowPreviousBtn={isShowPreviousBtn}
       />
     </>
   ) : null;
