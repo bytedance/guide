@@ -13,7 +13,7 @@ const Mask: React.FC<IMask> = ({
   className,
   anchorEl,
   realWindow,
-}): JSX.Element => {
+}): JSX.Element | null => {
   const [style, setStyle] = useState<Record<string, number>>({});
   const timerRef = useRef<number>(0);
 
@@ -40,6 +40,8 @@ const Mask: React.FC<IMask> = ({
       realWindow.removeEventListener('resize', handleResize);
     };
   }, [realWindow, anchorEl]);
+
+  if(!anchorEl) return null;
 
   return ReactDOM.createPortal(
     <div className={`guide-mask ${className}`} style={style} />,
