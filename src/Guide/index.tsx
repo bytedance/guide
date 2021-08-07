@@ -33,7 +33,7 @@ const Guide: React.FC<IGuide> = (props) => {
     nextText,
     okText,
     lang = 'zh',
-    isShowPreviousBtn = false,
+    showPreviousBtn = false,
   } = props;
 
   const [stepIndex, setStepIndex] = useState<number>(-1);
@@ -204,7 +204,7 @@ const Guide: React.FC<IGuide> = (props) => {
         okText={okText}
         className={modalClassName}
         TEXT={i18nTEXT}
-        isShowPreviousBtn={isShowPreviousBtn}
+        showPreviousBtn={showPreviousBtn}
       />
     </>
   ) : null;

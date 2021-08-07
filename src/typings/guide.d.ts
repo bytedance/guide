@@ -93,7 +93,8 @@ export interface IGuide {
   afterStepChange?: (stepIndex: number, step: IStep) => void;
   /* The callback function when the guide closes */
   onClose?: () => void;
-  isShowPreviousBtn?: boolean;
+  /* Whether or not to display the previous button */
+  showPreviousBtn?: boolean;
 }
 
 export interface IModal {
@@ -109,7 +110,7 @@ export interface IModal {
   onClose: () => void;
   onChange: (direction: number) => void;
   stepText?: (stepIndex: number, stepCount: number) => string;
-  isShowPreviousBtn: boolean;
+  showPreviousBtn: boolean;
   nextText?: string;
   prevText?: string;
   okText?: string;

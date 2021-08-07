@@ -33,7 +33,7 @@ const Modal: React.FC<IModal> = ({
   className,
   TEXT,
   prevText,
-  isShowPreviousBtn,
+  showPreviousBtn,
 }) => {
   const stepInfo = steps[stepIndex];
 
@@ -251,7 +251,7 @@ const Modal: React.FC<IModal> = ({
           </span>
           <div className={`${PREFIX}-footer-btn-group`}>
             {
-              isShowPreviousBtn && stepIndex !== 0 && <button className={`${PREFIX}-footer-btn ${PREFIX}-footer-prev-btn`} onClick={handlePreviousChange}>
+              showPreviousBtn && stepIndex !== 0 && <button className={`${PREFIX}-footer-btn ${PREFIX}-footer-prev-btn`} onClick={handlePreviousChange}>
                 {_prevText}
               </button>
             }
