@@ -3,7 +3,7 @@ import { getDocumentElement } from './utils';
 export const getMaskStyle = (anchorEl: Element): Record<string, number> => {
   const scrollContainer = getDocumentElement(anchorEl);
 
-  const { scrollWidth, scrollHeight, scrollTop } = scrollContainer;
+  const { clientWidth, clientHeight, scrollTop } = scrollContainer;
 
   // prevent scrolling
   scrollContainer.style.overflow = 'hidden';
@@ -14,11 +14,11 @@ export const getMaskStyle = (anchorEl: Element): Record<string, number> => {
   const top = anchorPos.top + scrollTop;
 
   return {
-    width: scrollWidth,
-    height: scrollHeight,
+    width: clientWidth,
+    height: clientHeight,
     borderTopWidth: Math.max(top, 0),
-    borderBottomWidth: Math.max(scrollHeight - height - top, 0),
-    borderRightWidth: Math.max(scrollWidth - width - left, 0),
+    borderBottomWidth: Math.max(clientHeight - height - top, 0),
+    borderRightWidth: Math.max(clientWidth - width - left, 0),
     borderLeftWidth: Math.max(left, 0),
   };
 };
