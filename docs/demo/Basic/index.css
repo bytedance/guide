@@ -23,6 +23,10 @@
   top: 160px;
 }
 
+.demo-main-btn.demo-show-previous {
+  top: 276px;
+}
+
 .demo-main-btn.add-step {
   top: 216px;
 }

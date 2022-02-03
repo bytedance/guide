@@ -32,6 +32,8 @@ const Modal: React.FC<IModal> = ({
   okText,
   className,
   TEXT,
+  prevText,
+  showPreviousBtn,
 }) => {
   const stepInfo = steps[stepIndex];
 
@@ -60,6 +62,7 @@ const Modal: React.FC<IModal> = ({
     stepIndex !== steps.length - 1
       ? nextText || TEXT('NEXT_STEP')
       : okText || TEXT('I_KNOW');
+  const _prevText = prevText || TEXT('PREV_STEP')
 
   const _stepText =
     stepText || (TEXT('STEP_NUMBER') as (idx: number, len: number) => string);
@@ -90,9 +93,14 @@ const Modal: React.FC<IModal> = ({
     setHotspotStyle(hotspotStyle);
   };
 
-  const handleChange = (): void => {
+  const handleNextChange = (): void => {
     stepInfo.beforeStepChange?.(stepInfo, stepIndex, steps);
-    onChange();
+    onChange(1);
+  };
+
+  const handlePreviousChange = (): void => {
+    stepInfo.beforeStepChange?.(stepInfo, stepIndex, steps);
+    onChange(-1);
   };
 
   const handleScroll = (): void => {
@@ -109,11 +117,11 @@ const Modal: React.FC<IModal> = ({
     if (
       // Modal is below the viewport
       anchorPos.top -
-        scrollContainerTop +
-        anchorPos.height +
-        modalPos.height +
-        MARGIN >=
-        visibleHeight ||
+      scrollContainerTop +
+      anchorPos.height +
+      modalPos.height +
+      MARGIN >=
+      visibleHeight ||
       // Modal is above the viewport
       anchorPos.top <= modalPos.height + MARGIN
     ) {
@@ -193,7 +201,7 @@ const Modal: React.FC<IModal> = ({
 
   useEffect((): void | (() => void) => {
     if (stepInfo.skip) {
-      onChange();
+      onChange(1);
     } else if (visible) {
       focusedIdxRef.current = 0;
 
@@ -213,41 +221,48 @@ const Modal: React.FC<IModal> = ({
 
   return visible
     ? ReactDOM.createPortal(
-        <div
-          ref={modalRef}
-          className={`${PREFIX} ${className}`}
-          style={modalStyle}
-        >
-          {/* ARROW */}
-          {arrow && <span className={`${PREFIX}-arrow`} style={arrowStyle} />}
-          {/* HOT SPOT */}
-          {hotspot && (
-            <div className={`${PREFIX}-hotspot`} style={hotspotStyle} />
-          )}
-          {/* CLOSE BUTTON */}
-          {closable && (
-            <CloseSmall className={`${PREFIX}-close-icon`} onClick={onClose} />
-          )}
-          {/* MODAL TITLE */}
-          <div className={`${PREFIX}-title`}>{stepInfo.title}</div>
-          {/* MODAL CONTENT */}
-          <div className={`${PREFIX}-content`}>
-            {typeof stepInfo.content === 'function'
-              ? stepInfo.content()
-              : stepInfo.content}
-          </div>
-          {/* MODAL FOOTER */}
-          <div className={`${PREFIX}-footer`}>
-            <span className={`${PREFIX}-footer-text`}>
-              {_stepText(stepIndex + 1, steps.length)}
-            </span>
-            <button className={`${PREFIX}-footer-btn`} onClick={handleChange}>
+      <div
+        ref={modalRef}
+        className={`${PREFIX} ${className}`}
+        style={modalStyle}
+      >
+        {/* ARROW */}
+        {arrow && <span className={`${PREFIX}-arrow`} style={arrowStyle} />}
+        {/* HOT SPOT */}
+        {hotspot && (
+          <div className={`${PREFIX}-hotspot`} style={hotspotStyle} />
+        )}
+        {/* CLOSE BUTTON */}
+        {closable && (
+          <CloseSmall className={`${PREFIX}-close-icon`} onClick={onClose} />
+        )}
+        {/* MODAL TITLE */}
+        <div className={`${PREFIX}-title`}>{stepInfo.title}</div>
+        {/* MODAL CONTENT */}
+        <div className={`${PREFIX}-content`}>
+          {typeof stepInfo.content === 'function'
+            ? stepInfo.content()
+            : stepInfo.content}
+        </div>
+        {/* MODAL FOOTER */}
+        <div className={`${PREFIX}-footer`}>
+          <span className={`${PREFIX}-footer-text`}>
+            {_stepText(stepIndex + 1, steps.length)}
+          </span>
+          <div className={`${PREFIX}-footer-btn-group`}>
+            {
+              showPreviousBtn && stepIndex !== 0 && <button className={`${PREFIX}-footer-btn ${PREFIX}-footer-prev-btn`} onClick={handlePreviousChange}>
+                {_prevText}
+              </button>
+            }
+            <button className={`${PREFIX}-footer-btn ${PREFIX}-footer-next-btn`} onClick={handleNextChange}>
               {_okText}
             </button>
           </div>
-        </div>,
-        parentEl,
-      )
+        </div>
+      </div>,
+      parentEl,
+    )
     : null;
 };
 

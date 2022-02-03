@@ -28,6 +28,8 @@ import Guide from 'byte-guide'
     afterStepChange={(nextIndex, nextStep)=> { /* do sth */}}
     stepText={(stepIndex, stepCount) => `第${stepIndex}步，共${stepCount}步`}
     nextText="下一步"
+    prevText="上一步"
+    showPreviousBtn
     okText='我知道了'
 />
 ```
@@ -49,6 +51,8 @@ import Guide from 'byte-guide'
 | hotspot          | 弹窗是否展示热点                                                   | bool                                     |          | false                                                                      |
 | stepText         | modal 的步骤信息文案                                               | (stepIndex, stepCount): string => {}     |          | (stepIndex, stepCount) => { return `第${stepIndex}步，共${stepCount}步`; } |
 | nextText         | modal 的'下一步'按钮文案                                           | string                                   |          | 下一步                                                                     |
+| prevText         | modal 的'上一步'按钮文案                                           | string                                   |          | 下一步                                                                     |
+| showPreviousBtn         | 是否显示'上一步'按钮                                                   | bool                                     |          | true                                                                       |
 | okText           | modal 的确认按钮文案                                               | string                                   |          | 我知道了                                                                   |
 | visible          | 控制 guide 显示隐藏，用于异步渲染                                  | bool                                     |          | true                                                                       |
 | lang             | 多语言                                                             | 'zh' ,'en' , 'ja'                        |          | 'zh'                                                                       |

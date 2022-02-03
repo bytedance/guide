@@ -14,6 +14,11 @@ const LANGUAGES = {
     en: (idx: number, length: number) => `Step ${idx} of ${length}`,
     ja: (idx: number, length: number) => `Step ${idx} of ${length}`,
   },
+  PREV_STEP: {
+    zh: '上一步',
+    en: 'Previous step',
+    ja: '前へ',
+  },
 };
 
 type languages = typeof LANGUAGES;

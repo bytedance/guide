@@ -41,6 +41,8 @@ import Guide from 'byte-guide';
   /* customize footers */
   stepText={(stepIndex, stepCount) => `Step ${stepIndex} of ${stepCount}`}
   nextText="Next"
+  prevText="Previous"
+  showPreviousBtn
   okText="Finish"
 />;
 ```
@@ -62,6 +64,8 @@ import Guide from 'byte-guide';
 | hotspot               | Whether or not to display the hotspot                                                                                | bool                                     |          | false                                                         |
 | stepText              | The custom text for the step info                                                                                    | (stepIndex, stepCount): string => {}     |          | (stepIndex, stepCount) => `Step ${stepIndex} of ${stepCount}` |
 | nextText              | The custom text for the `Next Step` button                                                                           | string                                   |          | Next                                                          |
+| prevText              | The custom text for the `Previous step` button                                                                           | string                                   |          | Previous                                                      |
+| showPreviousBtn     | Whether or not to display the previous button                                             | bool                                     |          | true                                                          |
 | okText                | The custom text for the confirm button at the last step                                                              | string                                   |          | I know                                                        |
 | visible               | If the guide is visible                                                                                              | bool                                     |          | true                                                          |
 | lang                  | The language of use                                                                                                  | 'zh' &#124; 'en' &#124; 'ja'             |          | 'zh'                                                          |

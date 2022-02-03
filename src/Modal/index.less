@@ -1,6 +1,6 @@
 .guide-modal {
   position: absolute;
-  width: 240px;
+  width: 340px;
   z-index: 1100;
   background: #fff;
   box-shadow: 0px 0px 4px 0px #999;
@@ -71,6 +71,10 @@
       color: rgba(153, 153, 153, 1);
     }
 
+    &-btn-group {
+      display: flex;
+      justify-self: flex-end;
+    }
     &-btn {
       padding: 3px 16px;
       line-height: 20px;
@@ -92,6 +96,9 @@
         box-shadow: 0px 0px 4px #338aff;
         transition: 0.3s;
       }
+    }
+    &-prev-btn {
+      margin-right: 10px;
     }
   }
 }

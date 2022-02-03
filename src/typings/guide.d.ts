@@ -74,13 +74,15 @@ export interface IGuide {
   /* The custom class name of the mask */
   maskClassName?: string;
   /* The expire date of the guide when it will not be displayed anymore */
-  expireDate?: string;  
+  expireDate?: string;
   /* If the guide is visible */
   visible?: boolean;
   /* The language of use */
   lang?: 'zh' | 'en' | 'ja';
   /* The custom text for the step info */
   stepText?: (stepIndex: number, stepCount: number) => string;
+  /* The custom text for the `Previous Step` button */
+  prevText?: string;
   /* The custom text for the `Next Step` button */
   nextText?: string;
   /* The custom text for the confirm button at the last step */
@@ -91,6 +93,8 @@ export interface IGuide {
   afterStepChange?: (stepIndex: number, step: IStep) => void;
   /* The callback function when the guide closes */
   onClose?: () => void;
+  /* Whether or not to display the previous button */
+  showPreviousBtn?: boolean;
 }
 
 export interface IModal {
@@ -104,10 +108,12 @@ export interface IModal {
   hotspot: boolean;
   closable: boolean;
   onClose: () => void;
-  onChange: () => void;
+  onChange: (direction: number) => void;
   stepText?: (stepIndex: number, stepCount: number) => string;
+  showPreviousBtn: boolean;
   nextText?: string;
+  prevText?: string;
   okText?: string;
   className?: string;
-  TEXT: (key: 'NEXT_STEP' | 'I_KNOW' | 'STEP_NUMBER') => string | StepNumber;
+  TEXT: (key: 'NEXT_STEP' | 'I_KNOW' | 'STEP_NUMBER' | 'PREV_STEP') => string | StepNumber;
 }
