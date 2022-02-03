@@ -44,6 +44,7 @@ import Guide from 'byte-guide'
 | localKey         | 本地缓存 key，缓存是否展示过该引导页，需确保系统内 localKey 唯一性 | string                                   | ✓        | --                                                                         |
 | expireDate       | 过期时间，大于等于该时间都不展示引导页                             | string，YYYY-mm-hh                       |          | --                                                                         |
 | closable         | 是否可以跳过引导                                                   | bool                                     |          | true                                                                       |
+| closeEle       | 自定义跳过引导的元素                                                   | string, reactNode                                     |          |  
 | modalClassName   | 弹窗类名                                                           | string                                   |          | --                                                                         |
 | maskClassName    | 蒙层类名                                                           | string                                   |          | --                                                                         |
 | mask             | 是否展示蒙层                                                       | bool                                     |          | false                                                                      |

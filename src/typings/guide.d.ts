@@ -95,6 +95,8 @@ export interface IGuide {
   onClose?: () => void;
   /* Whether or not to display the previous button */
   showPreviousBtn?: boolean;
+  /* close element */
+  closeEle?: JSX.Element;
 }
 
 export interface IModal {
@@ -107,6 +109,8 @@ export interface IModal {
   arrow: boolean;
   hotspot: boolean;
   closable: boolean;
+  /* close element */
+  closeEle?: JSX.Element;
   onClose: () => void;
   onChange: (direction: number) => void;
   stepText?: (stepIndex: number, stepCount: number) => string;

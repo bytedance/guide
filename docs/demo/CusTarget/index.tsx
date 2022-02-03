@@ -14,6 +14,7 @@ const App = (): JSX.Element => {
         mask={false}
         step={step}
         modalClassName="guide-hidden-footer"
+        closeEle='jump'
       />
       <h2 className="demo-main-header">Start the tour </h2>
       <Button
