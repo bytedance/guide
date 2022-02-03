@@ -34,6 +34,7 @@ const Guide: React.FC<IGuide> = (props) => {
     okText,
     lang = 'zh',
     showPreviousBtn = false,
+    closeEle,
   } = props;
 
   const [stepIndex, setStepIndex] = useState<number>(-1);
@@ -196,6 +197,7 @@ const Guide: React.FC<IGuide> = (props) => {
         arrow={arrow}
         hotspot={hotspot}
         closable={closable}
+        closeEle={closeEle}
         onClose={handleClose}
         onChange={handleChange}
         stepText={stepText}

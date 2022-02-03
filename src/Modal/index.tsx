@@ -34,6 +34,7 @@ const Modal: React.FC<IModal> = ({
   TEXT,
   prevText,
   showPreviousBtn,
+  closeEle
 }) => {
   const stepInfo = steps[stepIndex];
 
@@ -221,48 +222,56 @@ const Modal: React.FC<IModal> = ({
 
   return visible
     ? ReactDOM.createPortal(
-      <div
-        ref={modalRef}
-        className={`${PREFIX} ${className}`}
-        style={modalStyle}
-      >
-        {/* ARROW */}
-        {arrow && <span className={`${PREFIX}-arrow`} style={arrowStyle} />}
-        {/* HOT SPOT */}
-        {hotspot && (
-          <div className={`${PREFIX}-hotspot`} style={hotspotStyle} />
-        )}
-        {/* CLOSE BUTTON */}
-        {closable && (
-          <CloseSmall className={`${PREFIX}-close-icon`} onClick={onClose} />
-        )}
-        {/* MODAL TITLE */}
-        <div className={`${PREFIX}-title`}>{stepInfo.title}</div>
-        {/* MODAL CONTENT */}
-        <div className={`${PREFIX}-content`}>
-          {typeof stepInfo.content === 'function'
-            ? stepInfo.content()
-            : stepInfo.content}
-        </div>
-        {/* MODAL FOOTER */}
-        <div className={`${PREFIX}-footer`}>
-          <span className={`${PREFIX}-footer-text`}>
-            {_stepText(stepIndex + 1, steps.length)}
-          </span>
-          <div className={`${PREFIX}-footer-btn-group`}>
-            {
-              showPreviousBtn && stepIndex !== 0 && <button className={`${PREFIX}-footer-btn ${PREFIX}-footer-prev-btn`} onClick={handlePreviousChange}>
-                {_prevText}
-              </button>
-            }
-            <button className={`${PREFIX}-footer-btn ${PREFIX}-footer-next-btn`} onClick={handleNextChange}>
-              {_okText}
-            </button>
+        <div
+          ref={modalRef}
+          className={`${PREFIX} ${className}`}
+          style={modalStyle}
+        >
+          {/* ARROW */}
+          {arrow && <span className={`${PREFIX}-arrow`} style={arrowStyle} />}
+          {/* HOT SPOT */}
+          {hotspot && (
+            <div className={`${PREFIX}-hotspot`} style={hotspotStyle} />
+          )}
+          {/* CLOSE BUTTON */}
+          {closeEle ? (
+            <div className={`${PREFIX}-close-icon`}  onClick={onClose}>{closeEle}</div>
+          ) : closable ? (
+            <CloseSmall className={`${PREFIX}-close-icon`} onClick={onClose} />
+          ) : null}
+          {/* MODAL TITLE */}
+          <div className={`${PREFIX}-title`}>{stepInfo.title}</div>
+          {/* MODAL CONTENT */}
+          <div className={`${PREFIX}-content`}>
+            {typeof stepInfo.content === 'function'
+              ? stepInfo.content()
+              : stepInfo.content}
           </div>
-        </div>
-      </div>,
-      parentEl,
-    )
+          {/* MODAL FOOTER */}
+          <div className={`${PREFIX}-footer`}>
+            <span className={`${PREFIX}-footer-text`}>
+              {_stepText(stepIndex + 1, steps.length)}
+            </span>
+            <div className={`${PREFIX}-footer-btn-group`}>
+              {showPreviousBtn && stepIndex !== 0 && (
+                <button
+                  className={`${PREFIX}-footer-btn ${PREFIX}-footer-prev-btn`}
+                  onClick={handlePreviousChange}
+                >
+                  {_prevText}
+                </button>
+              )}
+              <button
+                className={`${PREFIX}-footer-btn ${PREFIX}-footer-next-btn`}
+                onClick={handleNextChange}
+              >
+                {_okText}
+              </button>
+            </div>
+          </div>
+        </div>,
+        parentEl,
+      )
     : null;
 };
 
