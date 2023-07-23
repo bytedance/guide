@@ -83,6 +83,8 @@ export interface IGuide {
   stepText?: (stepIndex: number, stepCount: number) => string;
   /* The custom text for the `Previous Step` button */
   prevText?: string;
+  /* The custom text for the `Skip` button */  
+  skipText?: string;
   /* The custom text for the `Next Step` button */
   nextText?: string;
   /* The custom text for the confirm button at the last step */
@@ -95,6 +97,8 @@ export interface IGuide {
   onClose?: () => void;
   /* Whether or not to display the previous button */
   showPreviousBtn?: boolean;
+  /* Whether or not to display the skip button */
+  showSkipBtn?: boolean;
   /* close element */
   closeEle?: JSX.Element;
 }
@@ -115,9 +119,11 @@ export interface IModal {
   onChange: (direction: number) => void;
   stepText?: (stepIndex: number, stepCount: number) => string;
   showPreviousBtn: boolean;
+  showSkipBtn: boolean;
   nextText?: string;
   prevText?: string;
+  skipText?: string;
   okText?: string;
   className?: string;
-  TEXT: (key: 'NEXT_STEP' | 'I_KNOW' | 'STEP_NUMBER' | 'PREV_STEP') => string | StepNumber;
+  TEXT: (key: 'NEXT_STEP' | 'I_KNOW' | 'STEP_NUMBER' | 'PREV_STEP' | 'SKIP_STEP') => string | StepNumber;
 }

@@ -59,11 +59,13 @@ const App = (): JSX.Element => {
   const [guideVisible, setGuideVisible] = useState(false);
   const [maskedGuideVisible, setMaskedGuideVisible] = useState(false);
   const [previousGuideVisible, setPreviousGuideVisible] = useState(false);
-
+  const [skipGuideVisible, setSkipGuideVisible] = useState(false);
   const handleMaskedGuideOpen = (): void => {
     setMaskedGuideVisible(true);
     setGuideVisible(false);
     setPreviousGuideVisible(false);
+    setSkipGuideVisible(false);
+
     setStep(-1);
   };
 
@@ -71,6 +73,8 @@ const App = (): JSX.Element => {
     setMaskedGuideVisible(false);
     setGuideVisible(true);
     setPreviousGuideVisible(false);
+    setSkipGuideVisible(false);
+
     setStep(-1);
   };
 
@@ -78,13 +82,21 @@ const App = (): JSX.Element => {
     setMaskedGuideVisible(false);
     setGuideVisible(false);
     setPreviousGuideVisible(true);
+    setSkipGuideVisible(false);
     setStep(-1);
   };
 
+  const handleSkipModeGuideOpen = (): void => {
+    setMaskedGuideVisible(false);
+    setGuideVisible(false);
+    setPreviousGuideVisible(false);
+    setSkipGuideVisible(true);
+  }
   const Guides = (): JSX.Element => (
     <>
       <Guide steps={STEPS} mask visible={maskedGuideVisible} lang="en" />
       <Guide steps={STEPS} visible={previousGuideVisible} showPreviousBtn lang="en" />
+      <Guide steps={STEPS} visible={skipGuideVisible} showSkipBtn lang="en" />
       <Guide
         steps={STEPS}
         mask={false}
@@ -118,6 +130,12 @@ const App = (): JSX.Element => {
         onClick={handlePreviousModeGuideOpen}
       >
         show Previous Btn
+      </Button>
+      <Button
+        className="demo-main-btn demo-show-skip"
+        onClick={handleSkipModeGuideOpen}
+      >
+        show Skip Btn
       </Button>
       <Button
         className="demo-main-btn add-step"
