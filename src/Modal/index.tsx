@@ -34,6 +34,8 @@ const Modal: React.FC<IModal> = ({
   TEXT,
   prevText,
   showPreviousBtn,
+  showSkipBtn,
+  skipText,
   closeEle
 }) => {
   const stepInfo = steps[stepIndex];
@@ -64,7 +66,7 @@ const Modal: React.FC<IModal> = ({
       ? nextText || TEXT('NEXT_STEP')
       : okText || TEXT('I_KNOW');
   const _prevText = prevText || TEXT('PREV_STEP')
-
+  const _skipText = skipText || TEXT('SKIP_STEP');
   const _stepText =
     stepText || (TEXT('STEP_NUMBER') as (idx: number, len: number) => string);
 
@@ -253,6 +255,16 @@ const Modal: React.FC<IModal> = ({
               {_stepText(stepIndex + 1, steps.length)}
             </span>
             <div className={`${PREFIX}-footer-btn-group`}>
+
+              {showSkipBtn && stepIndex != steps.length - 1 && (
+                <button
+                  className={`${PREFIX}-footer-btn ${PREFIX}-footer-skip-btn`}
+                  onClick={onClose}
+                >
+                  {_skipText}
+                </button>
+              )}
+
               {showPreviousBtn && stepIndex !== 0 && (
                 <button
                   className={`${PREFIX}-footer-btn ${PREFIX}-footer-prev-btn`}
