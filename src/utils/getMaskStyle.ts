@@ -2,11 +2,12 @@ import { getDocumentElement } from './utils';
 
 export const getMaskStyle = (anchorEl: Element): Record<string, number> => {
   const scrollContainer = getDocumentElement(anchorEl);
+  // prevent scrolling
+  scrollContainer.style.overflow = 'hidden';
 
   const { scrollWidth, scrollHeight, scrollTop } = scrollContainer;
 
-  // prevent scrolling
-  scrollContainer.style.overflow = 'hidden';
+
 
   const anchorPos = anchorEl.getBoundingClientRect();
   const { height, width, left } = anchorPos;
