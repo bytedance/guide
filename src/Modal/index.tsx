@@ -261,7 +261,7 @@ const Modal: React.FC<IModal> = ({
                   className={`${PREFIX}-footer-btn ${PREFIX}-footer-skip-btn`}
                   onClick={onClose}
                 >
-                  {_skipText}
+                  {String(_skipText)}
                 </button>
               )}
 
@@ -270,14 +270,14 @@ const Modal: React.FC<IModal> = ({
                   className={`${PREFIX}-footer-btn ${PREFIX}-footer-prev-btn`}
                   onClick={handlePreviousChange}
                 >
-                  {_prevText}
+                  {String(_prevText)}
                 </button>
               )}
               <button
                 className={`${PREFIX}-footer-btn ${PREFIX}-footer-next-btn`}
                 onClick={handleNextChange}
               >
-                {_okText}
+                {String(_okText)}
               </button>
             </div>
           </div>
