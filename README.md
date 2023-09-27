@@ -1,9 +1,11 @@
 # Introduction
+
 English | [简体中文](./README.zh-CN.md)
 
 When we onboard new users or ship new features, how do we make sure that our audience knows what's in it and get them excited to use our apps? That's where an onboarding sequence comes into play. This React library `guide` offers an effective way to construct a smooth onboarding experience.
 ![mask](./public/light_mode.png)
 ![no mask](./public/dark_mode.png)
+
 ## Installation
 
 ```javascript
@@ -52,12 +54,12 @@ import Guide from 'byte-guide';
 ### Component API's
 
 | props                 | definition                                                                                                           | type                                     | required | defalut value                                                 |
-| :-------------------- | :------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- | :------- | :------------------------------------------------------------ |
+| :-------------------- | :------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- | :------- | :------------------------------------------------------------ | --- |
 | steps                 | An array of info of each step of the onboarding sequence                                                             | IStep[]                                  | ✓        | --                                                            |
 | localKey              | A unique key that will be stored in localStorage to indicate if the guide has finished                               | string                                   | ✓        | --                                                            |
 | expireDate            | The expire date of the guide when it will not be displayed anymore                                                   | string，YYYY-mm-hh                       |          | --                                                            |
 | closable              | If the guide can be closed before the last step. If false, the close button `x` will not be displayed on each modal. | bool                                     |          | true                                                          |
-| closeEle       | Customize the element that skips the guide                                                   | string, reactNode                                     |          |  
+| closeEle              | Customize the element that skips the guide                                                                           | string, reactNode                        |          |
 | modalClassName        | The class name of the modal                                                                                          | string                                   |          | --                                                            |
 | maskClassName         | The class name of the mask                                                                                           | string                                   |          | --                                                            |
 | mask                  | Whether or not to display the mask                                                                                   | bool                                     |          | false                                                         |
@@ -65,14 +67,15 @@ import Guide from 'byte-guide';
 | hotspot               | Whether or not to display the hotspot                                                                                | bool                                     |          | false                                                         |
 | stepText              | The custom text for the step info                                                                                    | (stepIndex, stepCount): string => {}     |          | (stepIndex, stepCount) => `Step ${stepIndex} of ${stepCount}` |
 | nextText              | The custom text for the `Next Step` button                                                                           | string                                   |          | Next                                                          |
-| prevText              | The custom text for the `Previous step` button                                                                           | string                                   |          | Previous                                                      |
-| showPreviousBtn     | Whether or not to display the previous button                                             | bool                                     |          | true                                                          |
+| prevText              | The custom text for the `Previous step` button                                                                       | string                                   |          | Previous                                                      |
+| showPreviousBtn       | Whether or not to display the previous button                                                                        | bool                                     |          | true                                                          |
 | okText                | The custom text for the confirm button at the last step                                                              | string                                   |          | I know                                                        |
 | visible               | If the guide is visible                                                                                              | bool                                     |          | true                                                          |
 | lang                  | The language of use                                                                                                  | 'zh' &#124; 'en' &#124; 'ja'             |          | 'zh'                                                          |
 | step                  | The first step's number                                                                                              | number                                   |          | 0                                                             |
+| autoScroll            | auto scroll to the guide on load                                                                                     | bool                                     |          | true                                                          |
 | afterStepChange       | The callback function when the step changes                                                                          | (nextIndex, nextStep): void=>{}          |          | --                                                            |
-| beforeStepChange      | The callback function when the user is about to move to the next step                                                | (stepIndex: number, step: IStep) => void |          | --                                                            |
+| beforeStepChange      | The callback function when the user is about to move to the next step                                                | (stepIndex: number, step: IStep) => void |          | --                                                            |     |
 | onClose               | The callback function when the guide closes \*/                                                                      |
 | onClose?: () => void; | ():void=> {}                                                                                                         |                                          | --       |
 

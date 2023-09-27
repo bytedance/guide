@@ -36,7 +36,8 @@ const Modal: React.FC<IModal> = ({
   showPreviousBtn,
   showSkipBtn,
   skipText,
-  closeEle
+  closeEle,
+  autoScroll,
 }) => {
   const stepInfo = steps[stepIndex];
 
@@ -57,15 +58,16 @@ const Modal: React.FC<IModal> = ({
   const [arrowStyle, setArrowStyle] = useState({});
   const [hotspotStyle, setHotspotStyle] = useState({});
 
-  const scrollContainer = useMemo(() => getScrollContainer(anchorEl), [
-    anchorEl,
-  ]);
+  const scrollContainer = useMemo(
+    () => getScrollContainer(anchorEl),
+    [anchorEl],
+  );
 
   const _okText =
     stepIndex !== steps.length - 1
       ? nextText || TEXT('NEXT_STEP')
       : okText || TEXT('I_KNOW');
-  const _prevText = prevText || TEXT('PREV_STEP')
+  const _prevText = prevText || TEXT('PREV_STEP');
   const _skipText = skipText || TEXT('SKIP_STEP');
   const _stepText =
     stepText || (TEXT('STEP_NUMBER') as (idx: number, len: number) => string);
@@ -120,11 +122,11 @@ const Modal: React.FC<IModal> = ({
     if (
       // Modal is below the viewport
       anchorPos.top -
-      scrollContainerTop +
-      anchorPos.height +
-      modalPos.height +
-      MARGIN >=
-      visibleHeight ||
+        scrollContainerTop +
+        anchorPos.height +
+        modalPos.height +
+        MARGIN >=
+        visibleHeight ||
       // Modal is above the viewport
       anchorPos.top <= modalPos.height + MARGIN
     ) {
@@ -207,8 +209,9 @@ const Modal: React.FC<IModal> = ({
       onChange(1);
     } else if (visible) {
       focusedIdxRef.current = 0;
-
-      handleScroll();
+      if (autoScroll) {
+        handleScroll();
+      }
       handleKeydown({ keyCode: 9 });
       calculateStyle();
 
@@ -237,7 +240,9 @@ const Modal: React.FC<IModal> = ({
           )}
           {/* CLOSE BUTTON */}
           {closeEle ? (
-            <div className={`${PREFIX}-close-icon`}  onClick={onClose}>{closeEle}</div>
+            <div className={`${PREFIX}-close-icon`} onClick={onClose}>
+              {closeEle}
+            </div>
           ) : closable ? (
             <CloseSmall className={`${PREFIX}-close-icon`} onClick={onClose} />
           ) : null}
@@ -255,7 +260,6 @@ const Modal: React.FC<IModal> = ({
               {_stepText(stepIndex + 1, steps.length)}
             </span>
             <div className={`${PREFIX}-footer-btn-group`}>
-
               {showSkipBtn && stepIndex != steps.length - 1 && (
                 <button
                   className={`${PREFIX}-footer-btn ${PREFIX}-footer-skip-btn`}

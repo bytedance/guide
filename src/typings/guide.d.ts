@@ -29,7 +29,7 @@ export interface ITargetPos {
 
 export interface IStep {
   /* Relative to the target position of the body, there must be one of targetPos and selector, and the selector is read first */
-  targetPos?: ITargetPos,
+  targetPos?: ITargetPos;
   /* The CSS Selector of the anchor element or the anchor element itself */
   selector?: SelectorType;
   /* The title of the modal */
@@ -49,7 +49,11 @@ export interface IStep {
   /* If the modal should be skipped */
   skip?: boolean;
   /* The function called when user click "next" and before going to the next step */
-  beforeStepChange?: (curStep: IStep, curStepIndex: number, steps: IStep[]) => void;
+  beforeStepChange?: (
+    curStep: IStep,
+    curStepIndex: number,
+    steps: IStep[],
+  ) => void;
 }
 
 export interface IGuide {
@@ -83,7 +87,7 @@ export interface IGuide {
   stepText?: (stepIndex: number, stepCount: number) => string;
   /* The custom text for the `Previous Step` button */
   prevText?: string;
-  /* The custom text for the `Skip` button */  
+  /* The custom text for the `Skip` button */
   skipText?: string;
   /* The custom text for the `Next Step` button */
   nextText?: string;
@@ -101,6 +105,8 @@ export interface IGuide {
   showSkipBtn?: boolean;
   /* close element */
   closeEle?: JSX.Element;
+  /* Whether or not to auto scroll on guide load */
+  autoScroll?: boolean;
 }
 
 export interface IModal {
@@ -120,10 +126,13 @@ export interface IModal {
   stepText?: (stepIndex: number, stepCount: number) => string;
   showPreviousBtn: boolean;
   showSkipBtn: boolean;
+  autoScroll: boolean;
   nextText?: string;
   prevText?: string;
   skipText?: string;
   okText?: string;
   className?: string;
-  TEXT: (key: 'NEXT_STEP' | 'I_KNOW' | 'STEP_NUMBER' | 'PREV_STEP' | 'SKIP_STEP') => string | StepNumber;
+  TEXT: (
+    key: 'NEXT_STEP' | 'I_KNOW' | 'STEP_NUMBER' | 'PREV_STEP' | 'SKIP_STEP',
+  ) => string | StepNumber;
 }
