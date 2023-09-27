@@ -1,8 +1,10 @@
 # 使用指南
+
 [English](./README.md) | 简体中文
 
 ## 简介
-基于react实现的新手引导组件，用于新功能引导，支持带蒙层/不带蒙层两种模式。
+
+基于 react 实现的新手引导组件，用于新功能引导，支持带蒙层/不带蒙层两种模式。
 ![带蒙层](./public/light_mode.png)
 ![不带蒙层](./public/dark_mode.png)
 
@@ -44,7 +46,7 @@ import Guide from 'byte-guide'
 | localKey         | 本地缓存 key，缓存是否展示过该引导页，需确保系统内 localKey 唯一性 | string                                   | ✓        | --                                                                         |
 | expireDate       | 过期时间，大于等于该时间都不展示引导页                             | string，YYYY-mm-hh                       |          | --                                                                         |
 | closable         | 是否可以跳过引导                                                   | bool                                     |          | true                                                                       |
-| closeEle       | 自定义跳过引导的元素                                                   | string, reactNode                                     |          |  
+| closeEle         | 自定义跳过引导的元素                                               | string, reactNode                        |          |
 | modalClassName   | 弹窗类名                                                           | string                                   |          | --                                                                         |
 | maskClassName    | 蒙层类名                                                           | string                                   |          | --                                                                         |
 | mask             | 是否展示蒙层                                                       | bool                                     |          | false                                                                      |
@@ -53,11 +55,12 @@ import Guide from 'byte-guide'
 | stepText         | modal 的步骤信息文案                                               | (stepIndex, stepCount): string => {}     |          | (stepIndex, stepCount) => { return `第${stepIndex}步，共${stepCount}步`; } |
 | nextText         | modal 的'下一步'按钮文案                                           | string                                   |          | 下一步                                                                     |
 | prevText         | modal 的'上一步'按钮文案                                           | string                                   |          | 下一步                                                                     |
-| showPreviousBtn         | 是否显示'上一步'按钮                                                   | bool                                     |          | true                                                                       |
+| showPreviousBtn  | 是否显示'上一步'按钮                                               | bool                                     |          | true                                                                       |
 | okText           | modal 的确认按钮文案                                               | string                                   |          | 我知道了                                                                   |
 | visible          | 控制 guide 显示隐藏，用于异步渲染                                  | bool                                     |          | true                                                                       |
 | lang             | 多语言                                                             | 'zh' ,'en' , 'ja'                        |          | 'zh'                                                                       |
 | step             | 初始步骤，步骤可受控，为-1 则不展示组件                            | number                                   |          | 0                                                                          |
+| autoScroll       | 自动跳转到 Guide                                                   | bool                                     |          | true                                                                       |
 | afterStepChange  | 点击下一步的回调                                                   | (nextIndex, nextStep): void=>{}          |          | --                                                                         |
 | beforeStepChange | 点击下一步之前的回调                                               | (stepIndex: number, step: IStep) => void |          | --                                                                         |
 | onClose          | 引导结束的回调                                                     | ():void=> {}                             |          | --                                                                         |

@@ -11,7 +11,7 @@ import i18n from '../constant/lang';
 import Mask from '../Mask';
 import Modal from '../Modal';
 import { IGuide } from '../typings/guide';
-import { CUSTOM_ELEMENT_CLASS } from '../constant/className'
+import { CUSTOM_ELEMENT_CLASS } from '../constant/className';
 
 const Guide: React.FC<IGuide> = (props) => {
   const {
@@ -34,6 +34,7 @@ const Guide: React.FC<IGuide> = (props) => {
     nextText,
     okText,
     lang = 'zh',
+    autoScroll = true,
     showPreviousBtn = false,
     showSkipBtn = false,
     closeEle,
@@ -55,12 +56,12 @@ const Guide: React.FC<IGuide> = (props) => {
 
   const anchorEl = useMemo(() => {
     if (stepIndex >= 0 && stepIndex < steps.length) {
-      const { targetPos, selector } = steps[stepIndex]
+      const { targetPos, selector } = steps[stepIndex];
 
-      if (selector) return getAnchorEl(selector)
+      if (selector) return getAnchorEl(selector);
 
       if (targetPos) {
-        return getCusAnchorEl(targetPos)
+        return getCusAnchorEl(targetPos);
       }
     }
     return null;
@@ -79,9 +80,10 @@ const Guide: React.FC<IGuide> = (props) => {
   /* To cater the cases of using iframe where the anchorEl
    * is not in the same window scope as the code running
    */
-  const realWindow = useMemo(() => (anchorEl ? getWindow(anchorEl) : null), [
-    anchorEl,
-  ]);
+  const realWindow = useMemo(
+    () => (anchorEl ? getWindow(anchorEl) : null),
+    [anchorEl],
+  );
 
   const realDocument = useMemo(
     () => (anchorEl ? getDocumentElement(anchorEl as Element) : null),
@@ -89,8 +91,11 @@ const Guide: React.FC<IGuide> = (props) => {
   );
 
   const handleChange = (direction: number): void => {
-    const nextStepIndex = Math.min(Math.max(stepIndex + direction, 0), steps.length)
-    if (nextStepIndex === stepIndex) return
+    const nextStepIndex = Math.min(
+      Math.max(stepIndex + direction, 0),
+      steps.length,
+    );
+    if (nextStepIndex === stepIndex) return;
     if (nextStepIndex === steps.length) handleClose();
     else if (stepIndex >= 0) beforeStepChange?.(stepIndex, steps[stepIndex]);
     setStepIndex(nextStepIndex);
@@ -104,9 +109,9 @@ const Guide: React.FC<IGuide> = (props) => {
       (realDocument as HTMLElement).style.overflow = initOverflowVal;
     }
 
-    const cusAnchor = document.querySelector(CUSTOM_ELEMENT_CLASS)
+    const cusAnchor = document.querySelector(CUSTOM_ELEMENT_CLASS);
     if (cusAnchor) {
-      document.body.removeChild(cusAnchor)
+      document.body.removeChild(cusAnchor);
     }
 
     setStepIndex(-1);
@@ -209,6 +214,7 @@ const Guide: React.FC<IGuide> = (props) => {
         skipText={skipText}
         className={modalClassName}
         TEXT={i18nTEXT}
+        autoScroll={autoScroll}
         showPreviousBtn={showPreviousBtn}
         showSkipBtn={showSkipBtn}
       />
